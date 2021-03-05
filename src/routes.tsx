@@ -30,17 +30,17 @@ export const routes: RouteCategory[] = [
     icon: <Settings />,
     routes: [
       {
-        name: 'Password generator',
+        name: 'Password',
         icon: <VpnKey />,
         path: '/password',
       },
       {
-        name: 'UUID generator',
+        name: 'UUID',
         icon: <Fingerprint />,
         path: '/uuid',
       },
       {
-        name: 'Color generator',
+        name: 'Color',
         icon: <Palette />,
         path: '/color',
       },
