@@ -1,4 +1,15 @@
-import { Fingerprint, Keyboard, Palette, Settings, VpnKey } from '@material-ui/icons';
+import {
+  Fingerprint,
+  HelpOutline,
+  Https,
+  Keyboard,
+  Palette,
+  Schedule,
+  Settings,
+  TextFields,
+  VerifiedUser,
+  VpnKey,
+} from '@material-ui/icons';
 import JavaScriptIcon from './components/JavaScriptIcon';
 
 export interface RouteCategory {
@@ -33,6 +44,22 @@ export const routes: RouteCategory[] = [
         icon: <Palette />,
         path: '/color',
       },
+      {
+        name: 'Lorem ipsum',
+        icon: <TextFields />,
+        path: '/lorem-ipsum',
+      },
+    ],
+  },
+  {
+    category: 'Auth',
+    icon: <Https />,
+    routes: [
+      {
+        name: 'JWT validation',
+        icon: <VerifiedUser />,
+        path: '/jwt',
+      },
     ],
   },
   {
@@ -43,6 +70,17 @@ export const routes: RouteCategory[] = [
         name: 'Key event codes',
         icon: <Keyboard />,
         path: '/key-code',
+      },
+    ],
+  },
+  {
+    category: 'Help',
+    icon: <HelpOutline />,
+    routes: [
+      {
+        name: 'Crontab',
+        icon: <Schedule />,
+        path: '/crontab',
       },
     ],
   },
