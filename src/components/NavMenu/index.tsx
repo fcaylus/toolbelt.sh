@@ -7,7 +7,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { routes } from '../../routes';
 import { ListItemIcon } from '@material-ui/core';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 const maxDrawerWidth = 360;
@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function NavMenu() {
   const classes = useStyles();
-  const router = useRouter();
 
   return (
     <Drawer
@@ -51,17 +50,12 @@ export default function NavMenu() {
             </ListItem>
             <List component="div" disablePadding>
               {category.routes.map((route) => (
-                <ListItem
-                  key={route.path}
-                  button
-                  className={classes.nested}
-                  onClick={() => {
-                    router.push(route.path);
-                  }}
-                >
-                  <ListItemIcon>{route.icon}</ListItemIcon>
-                  <ListItemText primary={route.name} />
-                </ListItem>
+                <Link href={route.path} key={route.path} passHref>
+                  <ListItem button component="a" className={classes.nested}>
+                    <ListItemIcon>{route.icon}</ListItemIcon>
+                    <ListItemText primary={route.name} />
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </React.Fragment>
