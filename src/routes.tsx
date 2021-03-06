@@ -22,6 +22,7 @@ export interface Route {
   name: string;
   icon: any;
   path: string;
+  category?: string;
 }
 
 export const routes: RouteCategory[] = [

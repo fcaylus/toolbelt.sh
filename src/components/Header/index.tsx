@@ -3,9 +3,12 @@ import { createStyles, fade, makeStyles, Theme } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
 import Link from 'next/link';
+import useSearch from '../../hooks/useSearch';
+import { Autocomplete } from '@material-ui/lab';
+import { InputBase } from '@material-ui/core';
+import { Search } from '@material-ui/icons';
+import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -15,6 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       color: 'unset',
       textDecoration: 'none',
+    },
+    searchContainer: {
+      minWidth: '500px',
     },
     search: {
       position: 'relative',
@@ -37,6 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
     },
     inputRoot: {
+      width: '100%',
       color: 'inherit',
     },
     inputInput: {
@@ -50,6 +57,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Header() {
   const classes = useStyles();
+  const router = useRouter();
+
+  const { searchText, setSearchText, options } = useSearch();
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -61,19 +71,38 @@ export default function Header() {
             </Typography>
           </a>
         </Link>
-        <div className={classes.search}>
-          <div className={classes.searchIcon}>
-            <SearchIcon />
-          </div>
-          <InputBase
-            placeholder="Search… (WIP)"
-            classes={{
-              root: classes.inputRoot,
-              input: classes.inputInput,
-            }}
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </div>
+        <Autocomplete
+          freeSolo
+          disableClearable
+          options={options}
+          getOptionLabel={(option) => `${option.name} - ${option.category}`}
+          onChange={(e, value, reason) => {
+            if (typeof value !== 'string' && reason === 'select-option') {
+              router.push(value.path);
+            }
+          }}
+          className={classes.searchContainer}
+          renderInput={(params) => (
+            <div className={classes.search} ref={params.InputProps.ref}>
+              <div className={classes.searchIcon}>
+                <Search />
+              </div>
+              <InputBase
+                placeholder="Search…"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{
+                  'aria-label': 'search',
+                  ...params.inputProps,
+                }}
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+              />
+            </div>
+          )}
+        />
       </Toolbar>
     </AppBar>
   );
