@@ -11,8 +11,9 @@ import {
   VerifiedUser,
   VpnKey,
 } from '@material-ui/icons';
-import JavaScriptIcon from './components/JavaScriptIcon';
-import CssIcon from './components/CssIcon';
+import JavaScriptIcon from './components/icons/JavaScriptIcon';
+import CssIcon from './components/icons/CssIcon';
+import ShellIcon from './components/icons/ShellIcon';
 
 export interface RouteCategory {
   category: string;
@@ -95,6 +96,11 @@ export const routes: RouteCategory[] = [
         name: 'Crontab',
         icon: <Schedule />,
         path: '/crontab',
+      },
+      {
+        name: 'Shell',
+        icon: <ShellIcon />,
+        path: '/shell',
       },
     ],
   },
