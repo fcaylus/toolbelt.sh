@@ -1,16 +1,15 @@
 import React from 'react';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Toolbar } from '@material-ui/core';
 import PageHeader from './components/PageHeader';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       flexGrow: 1,
       height: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      paddingLeft: theme.spacing(1),
     },
     iframeWrapper: {
       flexGrow: 1,

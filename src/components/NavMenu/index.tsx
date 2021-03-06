@@ -15,11 +15,11 @@ const maxDrawerWidth = 360;
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     drawer: {
-      minWidth: drawerWidth,
-      maxWidth: maxDrawerWidth,
       flexShrink: 0,
     },
     drawerPaper: {
+      position: 'relative',
+      height: '100vh',
       minWidth: drawerWidth,
       maxWidth: maxDrawerWidth,
     },
