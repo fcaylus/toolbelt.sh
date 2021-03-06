@@ -3,6 +3,7 @@ import {
   HelpOutline,
   Https,
   Keyboard,
+  Link,
   Palette,
   Schedule,
   Settings,
@@ -11,6 +12,7 @@ import {
   VpnKey,
 } from '@material-ui/icons';
 import JavaScriptIcon from './components/JavaScriptIcon';
+import CssIcon from './components/CssIcon';
 
 export interface RouteCategory {
   category: string;
@@ -60,6 +62,17 @@ export const routes: RouteCategory[] = [
         name: 'JWT validation',
         icon: <VerifiedUser />,
         path: '/jwt',
+      },
+    ],
+  },
+  {
+    category: 'CSS',
+    icon: <CssIcon />,
+    routes: [
+      {
+        name: 'SVG URL-encoder',
+        icon: <Link />,
+        path: '/svg-url-encoder',
       },
     ],
   },
