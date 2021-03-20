@@ -5,9 +5,9 @@ import {
   Keyboard,
   Link,
   Palette,
-  Schedule,
   Settings,
   TextFields,
+  Update,
   VerifiedUser,
   VpnKey,
 } from '@material-ui/icons';
@@ -94,7 +94,7 @@ export const routes: RouteCategory[] = [
     routes: [
       {
         name: 'Crontab',
-        icon: <Schedule />,
+        icon: <Update />,
         path: '/crontab',
       },
       {
