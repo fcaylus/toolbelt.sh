@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { IconButton, Link, Toolbar, Typography } from '@material-ui/core';
 import { Page } from '../../index';
 import { GitHub, Launch } from '@material-ui/icons';
+import clsx from 'clsx';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,7 +27,7 @@ export default function PageHeader(props: PageHeader.Props) {
   const classes = useStyles();
 
   return (
-    <Toolbar className={classes.root} variant="dense">
+    <Toolbar className={clsx(classes.root, props.className)} variant="dense">
       <div className={classes.titleContainer}>
         <Typography variant="h6" component="h1" noWrap>
           {props.page.name}
@@ -59,5 +60,6 @@ export default function PageHeader(props: PageHeader.Props) {
 export namespace PageHeader {
   export interface Props extends React.ComponentPropsWithoutRef<any> {
     page: Page.Props;
+    className?: string;
   }
 }

@@ -3,13 +3,17 @@ import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Toolbar } from '@material-ui/core';
 import PageHeader from './components/PageHeader';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
       flexGrow: 1,
       height: '100vh',
       display: 'flex',
       flexDirection: 'column',
+    },
+    noIframe: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
     },
     iframeWrapper: {
       flexGrow: 1,
@@ -34,7 +38,7 @@ export default function Page(props: Page.Props) {
           <iframe className={classes.iframe} src={props.iframe.src} frameBorder={0} height="100%" width="100%" />
         </div>
       )}
-      {props.children}
+      {!props.iframe && <div className={classes.noIframe}>{props.children}</div>}
     </main>
   );
 }

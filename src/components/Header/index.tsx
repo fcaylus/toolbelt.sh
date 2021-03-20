@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Link from 'next/link';
 import useSearch from '../../hooks/useSearch';
 import { Autocomplete } from '@material-ui/lab';
-import { InputBase } from '@material-ui/core';
-import { Search } from '@material-ui/icons';
+import { IconButton, InputBase } from '@material-ui/core';
+import { GitHub, Search } from '@material-ui/icons';
 import { useRouter } from 'next/router';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme: Theme) =>
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
       width: '100%',
+    },
+    github: {
+      marginLeft: 'auto',
+      color: theme.palette.primary.contrastText,
     },
   })
 );
@@ -103,6 +107,15 @@ export default function Header() {
             </div>
           )}
         />
+        <IconButton
+          className={classes.github}
+          href="https://github.com/fcaylus/toolbelt.sh"
+          target="_blank"
+          rel="noopener"
+          color="inherit"
+        >
+          <GitHub fontSize="large" />
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
