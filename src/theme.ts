@@ -5,6 +5,7 @@ import { responsiveFontSizes } from '@material-ui/core';
 const theme = responsiveFontSizes(
   createMuiTheme({
     typography: {
+      // @ts-ignore
       fontFamily: ['"JetBrains Mono"', 'monospace', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"'],
     },
     palette: {

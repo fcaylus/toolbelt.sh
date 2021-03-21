@@ -12,8 +12,12 @@ const useStyles = makeStyles((theme) =>
       flexDirection: 'column',
     },
     noIframe: {
+      position: 'relative',
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
+      flexGrow: 1,
+      flex: 1,
+      overflow: 'auto',
     },
     iframeWrapper: {
       flexGrow: 1,
