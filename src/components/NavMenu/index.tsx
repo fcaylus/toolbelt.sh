@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { routes } from '../../routes';
 import { ListItemIcon } from '@material-ui/core';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const drawerWidth = 240;
 const maxDrawerWidth = 360;
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function NavMenu() {
   const classes = useStyles();
+  const router = useRouter();
+
+  const isCurrentPage = (path: string) => router.asPath.startsWith(path);
 
   return (
     <Drawer
@@ -51,7 +55,7 @@ export default function NavMenu() {
             <List component="div" disablePadding>
               {category.routes.map((route) => (
                 <Link href={route.path} key={route.path} passHref>
-                  <ListItem button component="a" className={classes.nested}>
+                  <ListItem button component="a" className={classes.nested} selected={isCurrentPage(route.path)}>
                     <ListItemIcon>{route.icon}</ListItemIcon>
                     <ListItemText primary={route.name} />
                   </ListItem>
