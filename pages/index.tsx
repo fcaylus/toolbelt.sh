@@ -1,6 +1,7 @@
 import { Box, Typography } from '@material-ui/core';
 import Page from '../src/components/Page';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { texts } from '../src/texts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,9 +18,9 @@ export default function Home() {
     <Page homepage name="">
       <Box m={4}>
         <Typography variant="h4" component="h1" className={classes.title}>
-          toolbelt.sh
+          {texts.website.name}
         </Typography>
-        <Typography variant="body1">The only web development tool belt you'll ever need.</Typography>
+        <Typography variant="body1">{texts.website.description}</Typography>
       </Box>
     </Page>
   );

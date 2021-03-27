@@ -9,6 +9,7 @@ import { Autocomplete } from '@material-ui/lab';
 import { IconButton, InputBase } from '@material-ui/core';
 import { GitHub, Search } from '@material-ui/icons';
 import { useRouter } from 'next/router';
+import { texts } from '../../texts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,7 +72,7 @@ export default function Header() {
         <Link href="/">
           <a className={classes.link}>
             <Typography variant="h6" noWrap>
-              toolbelt.sh
+              {texts.website.name}
             </Typography>
           </a>
         </Link>
@@ -109,7 +110,7 @@ export default function Header() {
         />
         <IconButton
           className={classes.github}
-          href="https://github.com/fcaylus/toolbelt.sh"
+          href={texts.website.github}
           target="_blank"
           rel="noopener"
           color="inherit"

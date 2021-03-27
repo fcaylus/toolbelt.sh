@@ -2,6 +2,8 @@ import React from 'react';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
 import { Toolbar } from '@material-ui/core';
 import PageHeader from './components/PageHeader';
+import Head from 'next/head';
+import { texts } from '../../texts';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -33,8 +35,15 @@ const useStyles = makeStyles((theme) =>
 export default function Page(props: Page.Props) {
   const classes = useStyles();
 
+  const title = `${texts.website.name}${!props.homepage ? ` - ${props.name}` : ''}`;
+
   return (
     <main className={classes.root}>
+      <Head>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="apple-mobile-web-app-title" content={title} />
+      </Head>
       <Toolbar />
       {!props.homepage && <PageHeader page={props} />}
       {props.iframe && (
