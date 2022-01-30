@@ -9,21 +9,21 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
+    "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
-    "fuse.js": "^6.4.6",
-    "next": "^10.0.8",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "fuse.js": "^6.5.3",
+    "next": "^12.0.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^10.0.8",
-    "@types/node": "^14.14.31",
-    "@types/react": "^17.0.2",
-    "@types/uuid": "^8.3.0",
-    "prettier": "^2.2.1",
-    "typescript": "^4.2.3"
+    "@next/bundle-analyzer": "^12.0.9",
+    "@types/node": "^17.0.13",
+    "@types/react": "^17.0.38",
+    "@types/uuid": "^8.3.4",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
   }
 }
